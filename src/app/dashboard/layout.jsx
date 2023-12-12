@@ -1,20 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { BsRobot, BsFillPersonBadgeFill, BsFillAwardFill, BsRocketTakeoffFill } from 'react-icons/bs';
-import { GiPostStamp } from "react-icons/gi";
-import { HiDocumentText } from "react-icons/hi2";
+import {  BsRocketTakeoffFill, BsCashCoin } from 'react-icons/bs';
+import { FaMoneyCheckDollar } from "react-icons/fa6";
+import { BiSolidAnalyse } from "react-icons/bi";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="">
-        <div className="relative bg-[#121207] min-h-screen max-h-max flex flex-row justify-between items-stretch">
+        <div className="relative bg-[#121207] h-screen max-h-max flex flex-row justify-between items-stretch overflow-hidden">
           <div className="w-1/4 min-w-max bg-gradient-to-br from-black via-zinc-950 to-gray-800 rounded-[20px] m-4 mr-2 p-4 relative">
             <div>
               <div className="flex gap-4">
                 <div className="text-sm my-auto">
-                  <div className="tracking-widest font-semibold text-white">
+                  <div className="tracking-widest font-semibold text-white text-xl">
                     Fin VISTA
                   </div>
                   
@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
               <Link href="/dashboard/financial-document-analyser">
                 <div className="px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg group  hover:bg-[#1A1F37] cursor-pointer transition-all">
                   <div className="p-2 rounded-xl bg-[#1A1F37] group-hover:bg-[#1976D2]">
-                    <BsRobot color="white" />
+                    <BiSolidAnalyse color="white" />
                   </div>
                   <div className="text-white">Financial Document Analyser</div>
                 </div>
@@ -65,9 +65,17 @@ export default function RootLayout({ children }) {
               <Link href="/dashboard/expense-tracker">
                 <div className="px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg group  hover:bg-[#1A1F37] cursor-pointer transition-all">
                   <div className="p-2 rounded-xl bg-[#1A1F37] group-hover:bg-[#1976D2]">
-                    <GiPostStamp color="white" />
+                    <BsCashCoin color="white" />
                   </div>
                   <div className="text-white">Expense Tracker</div>
+                </div>
+              </Link>
+              <Link href="/dashboard/union-budget">
+                <div className="px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg group  hover:bg-[#1A1F37] cursor-pointer transition-all">
+                  <div className="p-2 rounded-xl bg-[#1A1F37] group-hover:bg-[#1976D2]">
+                    <FaMoneyCheckDollar color="white" />
+                  </div>
+                  <div className="text-white">Know about Union Budget</div>
                 </div>
               </Link>
             </div>
