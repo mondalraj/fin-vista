@@ -78,6 +78,14 @@ export default function RootLayout({ children }) {
                   <div className="text-white">Know about Union Budget</div>
                 </div>
               </Link>
+              <Link href="/dashboard/income-tax-calculator">
+                <div className="px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg group  hover:bg-[#1A1F37] cursor-pointer transition-all">
+                  <div className="p-2 rounded-xl bg-[#1A1F37] group-hover:bg-[#1976D2]">
+                    <FaMoneyCheckDollar color="white" />
+                  </div>
+                  <div className="text-white">Income Tax Calculator</div>
+                </div>
+              </Link>
             </div>
             <div onClick={() => auth.signOut()}>
               <div className="absolute bottom-5 px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg right-4 left-4 group  hover:bg-[#1A1F37] cursor-pointer transition-all">
