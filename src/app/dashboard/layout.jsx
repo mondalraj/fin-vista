@@ -1,9 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import {  BsRocketTakeoffFill, BsCashCoin } from 'react-icons/bs';
+import { AvailableCategoriesContextProvider } from "./(store)/AvailableCategoriesContext";
+import { CategoriesContextProvider } from "./(store)/CategoriesContext";
+import { HistoryContextProvider } from "./(store)/HistoryContext";
+import {
+  BsRocketTakeoffFill,
+  BsPlusCircle,
+  BsBarChartLine,
+} from "react-icons/bs";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { BiSolidAnalyse } from "react-icons/bi";
+import { MdAttachMoney } from "react-icons/md";
 
 export default function RootLayout({ children }) {
   return (
@@ -17,7 +25,6 @@ export default function RootLayout({ children }) {
                   <div className="tracking-widest font-semibold text-white text-xl">
                     Fin VISTA
                   </div>
-                  
                 </div>
               </div>
               <svg
@@ -62,14 +69,6 @@ export default function RootLayout({ children }) {
                 </div>
               </Link>
 
-              <Link href="/dashboard/expense-tracker">
-                <div className="px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg group  hover:bg-[#1A1F37] cursor-pointer transition-all">
-                  <div className="p-2 rounded-xl bg-[#1A1F37] group-hover:bg-[#1976D2]">
-                    <BsCashCoin color="white" />
-                  </div>
-                  <div className="text-white">Expense Tracker</div>
-                </div>
-              </Link>
               <Link href="/dashboard/union-budget">
                 <div className="px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg group  hover:bg-[#1A1F37] cursor-pointer transition-all">
                   <div className="p-2 rounded-xl bg-[#1A1F37] group-hover:bg-[#1976D2]">
@@ -78,12 +77,36 @@ export default function RootLayout({ children }) {
                   <div className="text-white">Know about Union Budget</div>
                 </div>
               </Link>
-              <Link href="/dashboard/income-tax-calculator">
+              {/* <Link href="/dashboard/income-tax-calculator">
                 <div className="px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg group  hover:bg-[#1A1F37] cursor-pointer transition-all">
                   <div className="p-2 rounded-xl bg-[#1A1F37] group-hover:bg-[#1976D2]">
                     <FaMoneyCheckDollar color="white" />
                   </div>
                   <div className="text-white">Income Tax Calculator</div>
+                </div>
+              </Link> */}
+              <Link href="/dashboard/new-expense">
+                <div className="px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg group  hover:bg-[#1A1F37] cursor-pointer transition-all">
+                  <div className="p-2 rounded-xl bg-[#1A1F37] group-hover:bg-[#1976D2]">
+                    <BsPlusCircle color="white" />
+                  </div>
+                  <div className="text-white">Add an expense</div>
+                </div>
+              </Link>
+              <Link href="/dashboard/new-budget">
+                <div className="px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg group  hover:bg-[#1A1F37] cursor-pointer transition-all">
+                  <div className="p-2 rounded-xl bg-[#1A1F37] group-hover:bg-[#1976D2]">
+                    <MdAttachMoney color="white" />
+                  </div>
+                  <div className="text-white">Add/Update your budget</div>
+                </div>
+              </Link>
+              <Link href="/dashboard/expense-tracker">
+                <div className="px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg group  hover:bg-[#1A1F37] cursor-pointer transition-all">
+                  <div className="p-2 rounded-xl bg-[#1A1F37] group-hover:bg-[#1976D2]">
+                    <BsBarChartLine color="white" />
+                  </div>
+                  <div className="text-white">Expense Tracker</div>
                 </div>
               </Link>
             </div>
@@ -98,10 +121,16 @@ export default function RootLayout({ children }) {
           </div>
 
           <div className="w-full bg-gradient-to-br from-black via-zinc-950 to-gray-800 rounded-[20px] m-4 ml-2 p-3">
-            {children}
+            <AvailableCategoriesContextProvider>
+              <HistoryContextProvider>
+                <CategoriesContextProvider>
+                  {children}
+                </CategoriesContextProvider>
+              </HistoryContextProvider>
+            </AvailableCategoriesContextProvider>
           </div>
         </div>
       </body>
     </html>
-  )
+  );
 }
