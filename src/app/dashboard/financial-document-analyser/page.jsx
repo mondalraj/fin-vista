@@ -1,14 +1,13 @@
 "use client";
 
-
+import { storage } from "../../../config/Firebase";
 import { ref, uploadBytes } from "firebase/storage";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 import { FormEvent, useEffect, useState } from "react";
 import { AiOutlineSend } from "react-icons/ai";
 import { BsCloudUploadFill } from "react-icons/bs";
-import { storage } from "../../../config/Firebase";
 
-const FinancialDocumentAnalyser = () => {
+const LegalDocumentAI = () => {
   const [uploading, setUploading] = useState(false);
   const [file, setFile] = useState(null);
   const [pdfURL, setPdfURL] = useState(null);
@@ -106,7 +105,7 @@ const FinancialDocumentAnalyser = () => {
           <iframe src={`${pdfURL}#toolbar=0`} width="50%" height="100%" />
           <div className="h-[93vh] w-1/2 bg-black p-4 flex flex-col">
             <h1 className="text-2xl text-center border-b-2 py-5 flex justify-between items-center">
-              Navigating the law. One question at a time.
+              Navigating your finances. One question at a time.
               <div
                 className="border-2 p-2 rounded-full cursor-pointer"
                 onClick={() => {
@@ -149,7 +148,7 @@ const FinancialDocumentAnalyser = () => {
               {loading && (
                 <div className="flex justify-start">
                   <div className="bg-blue-500 rounded-lg p-2 text-white mr-6 my-1 animate-pulse">
-                    Legal AI is typing...
+                    Fin AI is typing...
                   </div>
                 </div>
               )}
@@ -208,7 +207,7 @@ const FinancialDocumentAnalyser = () => {
                 </span>
               ) : (
                 <span className="font-medium text-gray-300">
-                  Click to Upload any Legal Document
+                  Click to Upload any Finance Document
                 </span>
               )}
             </span>
@@ -229,4 +228,4 @@ const FinancialDocumentAnalyser = () => {
   );
 };
 
-export default FinancialDocumentAnalyser;
+export default LegalDocumentAI;

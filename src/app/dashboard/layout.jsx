@@ -8,6 +8,7 @@ import {
   BsRocketTakeoffFill,
   BsPlusCircle,
   BsBarChartLine,
+  BsFillPersonBadgeFill,
 } from "react-icons/bs";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { BiSolidAnalyse } from "react-icons/bi";
@@ -77,14 +78,14 @@ export default function RootLayout({ children }) {
                   <div className="text-white">Know about Union Budget</div>
                 </div>
               </Link>
-              {/* <Link href="/dashboard/income-tax-calculator">
+              <Link href="/dashboard/finance-experts">
                 <div className="px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg group  hover:bg-[#1A1F37] cursor-pointer transition-all">
                   <div className="p-2 rounded-xl bg-[#1A1F37] group-hover:bg-[#1976D2]">
-                    <FaMoneyCheckDollar color="white" />
+                    <BsFillPersonBadgeFill color="white" />
                   </div>
-                  <div className="text-white">Income Tax Calculator</div>
+                  <div className="text-white">Consult Finance Experts</div>
                 </div>
-              </Link> */}
+              </Link>
               <Link href="/dashboard/new-expense">
                 <div className="px-3 py-2 flex items-center gap-4 hover:gap-6 rounded-lg group  hover:bg-[#1A1F37] cursor-pointer transition-all">
                   <div className="p-2 rounded-xl bg-[#1A1F37] group-hover:bg-[#1976D2]">

@@ -109,6 +109,20 @@ const AddToExpenses = () => {
                 ? (category[0] = "Uncategorized")
                 : null;
 
+                addCategory({
+                  label: category[0],
+                  amount: value,
+                  id: crypto.randomUUID(),
+                });
+                setAvailableCategories((prev) => {
+                  return prev.map((c) => {
+                    if (c.label === category[0]) {
+                      c.isused = "true";
+                    }
+                    return c;
+                  });
+                });
+
                 addHistoryElement({
                     label: label,
                     amount: value,
